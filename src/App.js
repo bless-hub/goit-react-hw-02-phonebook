@@ -41,7 +41,7 @@ export default class App extends Component {
       (contact) => contact.name.toLowerCase() === name.toLowerCase()
     );
     if (sameContact) {
-      alert("hello");
+      alert(`${name} is already in contact.`);
       return;
     }
   };
