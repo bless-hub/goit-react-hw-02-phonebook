@@ -31,12 +31,14 @@ export default class App extends Component {
       number,
     };
 
+    const { contacts } = this.state;
+
     this.setState((prevState) => {
       return {
-        contacts: [...prevState.contacts, contact],
+        contacts: [contact, ...prevState.contacts],
       };
     });
-    const { contacts } = this.state;
+
     const sameContact = contacts.some(
       (contact) => contact.name.toLowerCase() === name.toLowerCase()
     );
@@ -73,7 +75,7 @@ export default class App extends Component {
           <ContactForm addContact={this.addContact} />
         </Container>
         <Container title="Contacts">
-          {visibleFilter.length > 1 && (
+          {visibleFilter.length > 0 && (
             <Filter
               title="Find"
               value={filter}
